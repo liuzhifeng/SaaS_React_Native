@@ -13,12 +13,17 @@ import {
     Navigator,
 } from 'react-native';
 
-export default class SaaS_React_Native extends Component {
+import homePage from './homePage';
+
+export default class loginPage extends Component {
     constructor(props) {
         super(props);
         this.state = { usernameText: '' };
         this.state = { passwordText: '' };
     }
+
+    let homePage = 'homePage';
+    let homePageComponent = homePage;
 
     _setIPButton() {
         console.log("setIP");
@@ -28,7 +33,15 @@ export default class SaaS_React_Native extends Component {
     }
     _loginButton(){
         console.log("login");
-
+        <Navigator
+            initialRoute={{ name: homePage, component: homePageComponent }}
+            configureScene={(route) => {
+                return Navigator.SceneConfigs.VerticalDownSwipeJump;
+              }}
+            renderScene={(route, navigator) => {
+                let Component = route.component;
+                return <Component {...route.params} navigator={navigator} />
+              }}></Navigator>
     }
     _verifyButton(){
         console.log("verify");
