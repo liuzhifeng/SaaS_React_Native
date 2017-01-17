@@ -11,6 +11,7 @@ import {
     TextInput,
     TouchableHighlight,
     Navigator,
+    Dimensions,
 } from 'react-native';
 
 import homePage from './homePage';
@@ -49,12 +50,13 @@ export default class loginPage extends Component {
         });
     };
 
-
     verifyButton =() =>{
         console.log("verify");
-    }
+    };
 
     render() {
+        var Dimensions = require('Dimensions');
+
 
         return (
 
@@ -125,11 +127,15 @@ export default class loginPage extends Component {
     }
 }
 
+var hScreen = Dimensions.get('window').height;
+var wScreen = Dimensions.get('window').width;
+
 const styles = StyleSheet.create({
+
     /*背景*/
     backContent :{
         flex: 1,
-        paddingTop:35,
+        paddingTop:hScreen * 0.05,
         paddingLeft:15,
         paddingRight:15,
         backgroundColor: 'rgba(248,250,252,1)'
@@ -142,7 +148,7 @@ const styles = StyleSheet.create({
     },
     /*空白*/
     spaceView :{
-        height: 150,
+        height: hScreen * 0.18,
     },
     /*用户名view*/
     userTextView: {
