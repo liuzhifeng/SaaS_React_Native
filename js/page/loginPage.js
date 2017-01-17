@@ -15,6 +15,10 @@ import {
 
 import homePage from './homePage';
 
+const INITIAL_ROUTE = {
+    component: loginPage,
+}
+
 export default class loginPage extends Component {
     constructor(props) {
         super(props);
@@ -22,35 +26,39 @@ export default class loginPage extends Component {
         this.state = { passwordText: '' };
     }
 
-    let homePage = 'homePage';
-    let homePageComponent = homePage;
+    renderScene = (route, navigator) =>{
+        const  Comp = route.component;
+        return(
+            <Comp navigator = {navigator} route = {route} />
+        );
+    };
 
-    _setIPButton() {
+    setIPButton =() =>{
         console.log("setIP");
     }
-    _rememberButton() {
+    rememberButton =() =>{
         console.log("remember");
     }
-    _loginButton(){
+
+    loginButton = () =>{
         console.log("login");
-        <Navigator
-            initialRoute={{ name: homePage, component: homePageComponent }}
-            configureScene={(route) => {
-                return Navigator.SceneConfigs.VerticalDownSwipeJump;
-              }}
-            renderScene={(route, navigator) => {
-                let Component = route.component;
-                return <Component {...route.params} navigator={navigator} />
-              }}></Navigator>
-    }
-    _verifyButton(){
+        const {navigator} = this.props;
+        navigator.push({
+            component: homePage,
+
+        });
+    };
+
+
+    verifyButton =() =>{
         console.log("verify");
     }
-
 
     render() {
 
         return (
+
+
 
             /*背景*/
             <View style = {styles.backContent}>
@@ -86,10 +94,10 @@ export default class loginPage extends Component {
                 </View>
                 {/*配置*/}
                 <View style = {styles.setView}>
-                    <TouchableHighlight onPress={this._setIPButton}>
+                    <TouchableHighlight onPress={this.setIPButton}>
                         <Text style={{color : 'rgba(11,72,122,1)'}}>配置服务器IP</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight onPress={this._rememberButton}>
+                    <TouchableHighlight onPress={this.rememberButton}>
                         <View style={styles.btnView}>
                             <Image source={require('./myImage/选中框d.png')} style={{width: 16, height: 16}}/>
                             <Text style={{color : 'rgba(11,72,122,1)'}}>记住密码</Text>
@@ -99,7 +107,7 @@ export default class loginPage extends Component {
                 </View>
                 <View style={{paddingTop:40}}>
                 </View>
-                <TouchableHighlight onPress={this._loginButton}>
+                <TouchableHighlight onPress={this.loginButton}>
                     <Text style={styles.loginText}>
                         登录
                     </Text>
@@ -107,7 +115,7 @@ export default class loginPage extends Component {
 
                 <View style={{paddingTop:20}}>
                 </View>
-                <TouchableHighlight onPress={this._verifyButton()}>
+                <TouchableHighlight onPress={this.verifyButton()}>
                     <Text style={styles.verifyText}>
                         验证码登录
                     </Text>

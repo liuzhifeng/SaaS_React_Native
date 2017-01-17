@@ -8,7 +8,7 @@ import {
     AppRegistry,
 } from 'react-native';
 
-import loginPage from './js/page/loginPage';
+import main from './js/page/main';
 
 
-AppRegistry.registerComponent('SaaS_React_Native', () => loginPage);
+AppRegistry.registerComponent('SaaS_React_Native', () => main);
