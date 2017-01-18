@@ -11,6 +11,8 @@ import {
     PixelRatio,
 } from 'react-native';
 
+import TabNavigator from 'react-native-tab-navigator';
+
 export default class homePage extends Component {
     render() {
         const {navigator} = this.props;
@@ -22,6 +24,7 @@ export default class homePage extends Component {
                 window.height={Dimensions.get('window').height + '\n'}
                 pxielRatio={PixelRatio.get()}
             </Text>
+
         </View>
     );
     }

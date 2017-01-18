@@ -128,7 +128,6 @@ export default class loginPage extends Component {
 }
 
 var hScreen = Dimensions.get('window').height;
-var wScreen = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
 
@@ -164,7 +163,7 @@ const styles = StyleSheet.create({
     /*用户名输入*/
     textEnter :{
         flex: 7,
-        height: 30,
+        height: 35,
         width: 300,
         paddingLeft: 10,
         borderColor: 'gray',
