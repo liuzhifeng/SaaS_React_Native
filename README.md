@@ -2,4 +2,6 @@
 
 SaaS for react_naitve
 
-$npm i 
+$ npm i 
+$ react-native run-android
+$ react-native run-ios
