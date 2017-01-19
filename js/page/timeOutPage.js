@@ -15,7 +15,7 @@ export default class timeOutPage extends Component {
 
     render() {
         return(
-            <View style={{flex:1,backgroundColor:'red'}}>
+            <View style={{flex:1,backgroundColor:'green'}}>
 
             </View>
         )

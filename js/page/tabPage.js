@@ -13,11 +13,13 @@ import {
 } from 'react-native';
 
 import TabNavigator from 'react-native-tab-navigator';
-import homePage from './homePage';
-import waitPage from './waitPage';
-import timeOutPage from './timeOutPage';
-import statisticalPage from './statisticalPage';
-import morePage from './morePage';
+import HomePage from './homePage';
+import WaitPage from './waitPage';
+import TimeOutPage from './timeOutPage';
+import StatisticalPage from './statisticalPage';
+import MorePage from './morePage';
+
+import NavigationBar from 'react-native-navbar';
 
 const TabNavigatorItem =TabNavigator.Item;
 
@@ -38,7 +40,7 @@ export default class tabPage extends Component {
     constructor(){
         super()
         this.state = {
-            selectedTab: 'homePage',
+            selectedTab: 'HomePage',
         }
     }
 /*tab点击*/
@@ -56,26 +58,32 @@ export default class tabPage extends Component {
     renderTabView(title,tabName,tabContent){
         var tabNomal;
         var tabPress;
+        var tabPage;
         switch (tabName) {
-            case 'homePage':
+            case 'HomePage':
                 tabNomal=TAB_NORMAL_HOME;
                 tabPress=TAB_PRESS_HOME;
+                tabPage=<HomePage/>;
                 break;
-            case 'waitPage':
+            case 'WaitPage':
                 tabNomal=TAB_NORMAL_WAIT;
                 tabPress=TAB_PRESS_WAIT;
+                tabPage=<WaitPage/>;
                 break;
-            case 'timeOutPage':
+            case 'TimeOutPage':
                 tabNomal=TAB_NORMAL_TIME;
                 tabPress=TAB_PRESS_TIME;
+                tabPage=<TimeOutPage/>;
                 break;
-            case 'statisticalPage':
+            case 'StatisticalPage':
                 tabNomal=TAB_NORMAL_STATISTICAL;
                 tabPress=TAB_PRESS_STATISTICAL;
+                tabPage=<StatisticalPage/>;
                 break;
-            case 'morePage':
+            case 'MorePage':
                 tabNomal=TAB_NORMAL_MORE;
                 tabPress=TAB_PRESS_MORE;
+                tabPage=<MorePage/>;
             default:
 
         }
@@ -88,10 +96,8 @@ export default class tabPage extends Component {
                 selectedTitleStyle={styles.selectedTabText}
                 onPress={()=>this.onPress(tabName)}
             >
-                {
-                    tabName=='Home'?<Home/>:
-                        <View style={{flex:1,justifyContent:'center',alignItems:'center'}}><Text>{tabContent}</Text></View>
-                }
+                {tabPage}
+
             </TabNavigatorItem>
         );
     }
@@ -103,11 +109,11 @@ export default class tabPage extends Component {
                 <TabNavigator
                     tabBarStyle={styles.tab}
                 >
-                    {this.renderTabView('首页','homePage','首页')}
-                    {this.renderTabView('待办','waitPage','待办')}
-                    {this.renderTabView('超时','timeOutPage','超时')}
-                    {this.renderTabView('统计','statisticalPage','统计')}
-                    {this.renderTabView('更多','morePage','更多')}
+                    {this.renderTabView('首页','HomePage','首页')}
+                    {this.renderTabView('待办','WaitPage','待办')}
+                    {this.renderTabView('超时','TimeOutPage','超时')}
+                    {this.renderTabView('统计','StatisticalPage','统计')}
+                    {this.renderTabView('更多','MorePage','更多')}
                 </TabNavigator>
             </View>
         );
