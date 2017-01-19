@@ -25,6 +25,9 @@ export default class main extends Component {
             <View style={styles.root}>
             <Navigator
             initialRoute={INITIAL_ROUTE}
+            configureScene={(route) => {
+            return Navigator.SceneConfigs.VerticalUpSwipeJump;
+          }}
             renderScene={this.renderScene}/>
 
             </View>

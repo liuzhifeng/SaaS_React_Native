@@ -8,7 +8,7 @@ import {
     Text,
 } from 'react-native';
 
-export default class homePage extends Component {
+export default class waitPage extends Component {
 
     render() {
         return(
@@ -17,5 +17,6 @@ export default class homePage extends Component {
             </View>
         )
 
-    }
+}
+
 }

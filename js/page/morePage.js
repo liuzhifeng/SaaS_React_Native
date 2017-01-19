@@ -1,5 +1,5 @@
 /**
- * Created by xiaolongxia on 2017/1/18.
+ * Created by xiaolongxia on 2017/1/19.
  */
 import React, { Component } from 'react';
 import {
@@ -8,7 +8,7 @@ import {
     Text,
 } from 'react-native';
 
-export default class homePage extends Component {
+export default class morePage extends Component {
 
     render() {
         return(
@@ -18,4 +18,5 @@ export default class homePage extends Component {
         )
 
     }
+
 }

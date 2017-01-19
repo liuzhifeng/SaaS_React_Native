@@ -14,7 +14,7 @@ import {
     Dimensions,
 } from 'react-native';
 
-import homePage from './homePage';
+import tabPage from './tabPage';
 
 const INITIAL_ROUTE = {
     component: loginPage,
@@ -45,7 +45,7 @@ export default class loginPage extends Component {
         console.log("login");
         const {navigator} = this.props;
         navigator.push({
-            component: homePage,
+            component: tabPage,
 
         });
     };
